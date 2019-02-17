@@ -1,6 +1,7 @@
 <section id="list-pane" class="row list">
   <ul >
     {{ range .Data.Pages.ByPublishDate.Reverse }}
+    {{ if not .Draft }}
     <li class="list-entry">
       <a class="list-entry-link" href="{{ .Permalink }}">{{ .Title }}</a>
       <p class="meta">
@@ -22,6 +23,7 @@
       {{ .Description }}
       </p>
     </li>
+    {{ end }}
     {{ end }}
   </ul>
 </section>
